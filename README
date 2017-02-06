@@ -1,0 +1,17 @@
+#确保ntpdate已经安装成功,并将本机设置成时间服务器
+
+#确保能用python远程修改mysql
+UPDATE mysql.user SET Grant_priv='Y', Super_priv='Y' WHERE User='root';
+FLUSH PRIVILEGES;
+
+#如果cdh相关的文件没有上传，首先上传到 /root下
+
+#ssh互信需要手动执行
+
+#使用的jdk 是 jdk-7u79-linux-x64
+
+#使用的cdh
+CDH-5.7.4-1.cdh5.7.4.p0.2-el6.parcel
+CDH-5.7.4-1.cdh5.7.4.p0.2-el6.parcel.sha
+cloudera-manager-el6-cm5.7.4_x86_64.tar.gz
+manifest.json

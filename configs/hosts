@@ -1,0 +1,4 @@
+192.168.88.150 hadoop-manager1
+192.168.88.151 hadoop-namenode1
+192.168.88.152 hadoop-datanode1
+192.168.88.153 hadoop-datanode2

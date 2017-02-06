@@ -1,0 +1,18 @@
+#关闭防火墙
+service iptables stop
+chkconfig iptables off
+#禁止ipv6
+echo "alias net-pf-10 off" >> /etc/modprobe.d/dist.conf
+echo "alias ipv6 off" >> /etc/modprobe.d/dist.conf
+#其他配置
+echo 0 > /proc/sys/vm/swappiness
+echo 'vm.swappiness=0'>> /etc/sysctl.conf
+echo never > /sys/kernel/mm/redhat_transparent_hugepage/defrag
+echo 'echo never > /sys/kernel/mm/redhat_transparent_hugepage/defrag' >> /etc/rc.local
+mkdir /root/sshlog
+#安装cloudera的操作
+
+chmod +w /etc/sudoers
+sed -i '1s/^/cloudera-scm  ALL=(ALL)       NOPASSWD:ALL\n/' /etc/sudoers
+sed -i '1s/^/root    ALL=(ALL)       ALL\n/' /etc/sudoers
+sed -i 's/^server_host=.*/server_host=hadoop-manager1/' /opt/cloudera-manager/cm-5.7.4/etc/cloudera-scm-agent/config.ini
